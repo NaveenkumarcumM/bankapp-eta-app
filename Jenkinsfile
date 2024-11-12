@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Git Clone') {
+        stage('build project') {
             steps {
                 git url: 'https://github.com/NaveenkumarcumM/bankapp-eta-app.git', branch: "master"
+                sh 'mvn clean package'
             }
         }
 
