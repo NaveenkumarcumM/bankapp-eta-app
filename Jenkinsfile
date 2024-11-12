@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t naveencum98/bankapp-eta-app:v1 .'
+                    sh 'docker build -t naveencum98/staragileprojectfinance:v1 .'
                     sh 'docker images'
                 }
             }
@@ -27,13 +27,13 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push naveencum98/bankapp-eta-app:v1'
+                sh 'docker push naveencum98/staragileprojectfinance:v1'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'sudo docker run -itd --name My-first-container2211 -p 8083:80 naveencum98/bankapp-eta-app:v1'
+                sh 'sudo docker run -itd --name My-first-container2211 -p 8083:80 naveencum98/staragileprojectfinance:v1'
             }
         }
     }
